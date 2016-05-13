@@ -4,9 +4,6 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		less: {
-			options: {
-				compress: true,
-			},
 			main: {
 				files: {
 					"dist/style.css": "source/style.less"
