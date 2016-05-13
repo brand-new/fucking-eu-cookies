@@ -23,7 +23,6 @@ module.exports = function(grunt) {
 				dest: 'dist/cz.js',
 				options: {
 					process: function(content, path) {
-						grunt.config.set('css', grunt.file.read('dist/style.css'));
 						grunt.config.set('l18n', grunt.file.readJSON('source/l18n.cz.json'));
 						grunt.config.set('options', grunt.file.readJSON('source/options.json'));
 						return grunt.template.process(content);
@@ -35,7 +34,6 @@ module.exports = function(grunt) {
 				dest: 'dist/en.js',
 				options: {
 					process: function(content, path) {
-						grunt.config.set('css', grunt.file.read('dist/style.css'));
 						grunt.config.set('l18n', grunt.file.readJSON('source/l18n.en.json'));
 						grunt.config.set('options', grunt.file.readJSON('source/options.json'));
 						return grunt.template.process(content);
@@ -47,7 +45,6 @@ module.exports = function(grunt) {
 				dest: 'dist/sk.js',
 				options: {
 					process: function(content, path) {
-						grunt.config.set('css', grunt.file.read('dist/style.css'));
 						grunt.config.set('l18n', grunt.file.readJSON('source/l18n.sk.json'));
 						grunt.config.set('options', grunt.file.readJSON('source/options.json'));
 						return grunt.template.process(content);

@@ -12,7 +12,6 @@
 
 	var includes = <%= JSON.stringify({
 				version: pkg.version,
-				css: css,
 				l18n: l18n,
 				options: options
 			}, null, '\t') %>;
@@ -70,14 +69,10 @@
 			.replace('%a', config.l18n.accept);
 		var body = d.body;
 		var head = d.head;
-		var style = document.createElement('style');
-		style.type = 'text/css';
-		style.appendChild(d.createTextNode(includes.css));
 
 		var div = d.createElement('div');
 		div.className = identificator + ' eu-cookies-priority';
 		div.innerHTML = html;
-		head.appendChild(style);
 		var insertTo = config.options.insertTo;
 		var targetElement;
 		if (insertTo == 'body-begin') {
