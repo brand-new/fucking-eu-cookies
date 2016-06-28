@@ -5,11 +5,17 @@ na [S3](https://aws.amazon.com/s3/), CDN před [CloudFront](https://aws.amazon.c
 *[EN] Sorry, this readme is currently possible only in Czech, because main target users are in CZ.*
 
 ## Instalace
-Pro nainstalování tohoto rozšíření stačí do stránky vložit následující kód:
-```html
-<script src="//d2z9iq901qkqk8.cloudfront.net/cz.js" async></script>
+1. Zkompilujeme fucking-eu-cookies pomocí `grunt` příkazu.
+2. Zkopírujeme `build/cz.js` (resp. jiné jazyky) do projektu do `template/assets/js/vendor/fucking-eu-cookies.js`.
+3. V Gruntfile.js zakomponujeme JS do concat tasku:
 ```
-Kód můžete vložit kamkoliv do stránky, ale nejlépe někam mezi `<head>` a `</head>`.
+{
+	dest: '.tmp/concat/js/vendor/eu-cookies.js',
+	src: 'assets/js/vendor/fucking-eu-cookies.js'
+}
+```
+4. Před `</body>` tag vložíme `<script src="{$baseUri}/assets/js/vendor/eu-cookies.js" async defer></script>` (pokud nepotřebujeme IE8 support, `defer` není potřeba).
+5. Zkopírujeme `dist/style.css` do projektu do `template/assets/scss/components/_fucking-eu-cookies.scss` a importujeme v `main.scss`.
 
 Takto nainstalovaná knihovna má funkce:
 * zobrazení lišty v horní části stránky,
